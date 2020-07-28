@@ -6,8 +6,25 @@ export function range(start, end) {
   //
   // * Please implement this function and pass all the tests in range_and_array_spec.js.
   // * Please do NOT modify the signature of the function.
+ let arr = new Array(Math.abs(end - start));
+ if(start > end){
+ 
+  for(let i = 0 ; i < start - end ;i++){
+ 
+    arr[i] = start - i;
+ 
+  }
+ }else{
+ 
+  for(let i = 0 ; i < end - start ;i++){
+  
+    arr[i] = start + i;
+  
+  }
+ 
+}
 
-  throw new Error('Please delete this line and implement the function');
+ return arr;
 }
 
 export function sum(...numbers) {
@@ -17,6 +34,11 @@ export function sum(...numbers) {
   //
   // * Please implement this function and pass all the tests in range_and_array_spec.js.
   // * Please do NOT modify the signature of the function.
+  let sum = 0;
 
-  throw new Error('Please delete this line and implement the function');
+  for(let i = 0 ; i < numbers.length ;i++){
+   sum += numbers[i];
+  }
+ 
+  return sum;
 }
