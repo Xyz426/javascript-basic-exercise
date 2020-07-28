@@ -16,5 +16,4 @@ export default function countCharacter(string, prediction) {
   }else{
     return 0;
   }
-  throw new Error('Please delete this line and implement the function');
 }
