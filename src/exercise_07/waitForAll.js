@@ -9,5 +9,20 @@ export default function waitForAll(...promises) {
   // * Please implement this function and pass all the tests in wait_for_all_spec.js.
   // * Please do NOT modify the signature of the function.
 
-  throw new Error('Please delete this line and implement the function');
+  promises.forEach(p => {
+    if(!(p instanceof Promise)){
+      throw('Not all elements are promises.');
+    }
+  })
+  let catchError = false;
+
+  return promises.reduce(
+    //pre 表示上一次调用回调时的返回值
+    //cur 表示当前正在处理的数组元素
+    (pre, cur) => pre.then(() => cur)
+      .catch(() => {
+        catchError = true;
+        return cur;
+      }),
+  ).then(() => (catchError ? Promise.reject() : Promise.resolve()));
 }
